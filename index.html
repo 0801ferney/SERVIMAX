@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servimax</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <div class="header-top">
+
+      <div class="logo">🐾 <span>Servi</span>max</div>
+      <div class="search-bar">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input type="text" id="search-input" placeholder="Buscar productos..." />
+      </div>
+      <button class="cart-btn" id="cart-btn" onclick="mostrarModalCarrito(true)">
+        🛒 <span id="cart-badge" class="cart-badge">0</span>
+      </button>
+
+    </div>
+    <div class="categories-wrap">
+      <div class="categories" id="categories-bar">
+      </div>
+    </div>
+  </header>
+  <main>
+
+    <div class="section-header">
+      <h2 class="section-title" id="section-title">Todos los productos</h2>
+      <span class="section-subtitle" id="section-count"></span>
+    </div>
+
+    <div id="products-grid"></div>
+    <div id="loader">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+
+    <div id="empty">
+      <div class="big">🔍</div>
+      <h3>Sin resultados</h3>
+      <p>Prueba con otra búsqueda o categoría.</p>
+    </div>
+
+  </main>
+
+  <div class="cart-modal" id="cart-modal">
+    <div class="cart-overlay" onclick="mostrarModalCarrito(false)"></div>
+    <div class="cart-content">
+      <div class="cart-header">
+        <h3>Carrito de compras</h3>
+        <button class="cart-close" onclick="mostrarModalCarrito(false)">✕</button>
+      </div>
+      <div class="cart-body">
+        <div id="cart-empty" class="cart-empty">
+          <div class="big">🛒</div>
+          <p>Tu carrito está vacío</p>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cart-total">$0</span>
+        </div>
+        <button class="btn-checkout">Proceder al pago</button>
+      </div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
